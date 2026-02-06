@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="styles/orbital-menu.css">
     <link rel="stylesheet" href="styles/dark-mode.css">
     <link rel="stylesheet" href="styles/cost-breakup.css">
+    <link rel="stylesheet" href="styles/fpo-section.css">
 
     <!-- Three.js for 3D -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -83,11 +84,11 @@
                         <span class="icon-label">Technology</span>
                     </a>
 
-                    <a href="#benefits" class="menu-icon-orbit icon-orbit-6" title="Benefits">
+                    <a href="#fpos" class="menu-icon-orbit icon-orbit-6" title="FPOs">
                         <div class="icon-circle">
-                            <span class="icon">🏆</span>
+                            <span class="icon">🤝</span>
                         </div>
-                        <span class="icon-label">Benefits</span>
+                        <span class="icon-label">FPOs</span>
                     </a>
                 </div>
             </div>
@@ -617,80 +618,227 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits-section">
+    <!-- FPOs Section -->
+    <section id="fpos" class="fpos-section">
         <div class="container">
-            <h2 class="section-title">Farmer Benefits</h2>
-            <p class="section-subtitle">Real results from engineered farms</p>
+            <h2 class="section-title">Why FPOs Are Essential</h2>
+            <p class="section-subtitle">AGROVA is built around the FPO model, not outside it</p>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">💧</div>
-                    <h3>Less Water</h3>
-                    <p>Save up to 60% water through drip irrigation, mulching, and hydroponics</p>
-                    <div class="benefit-metric">
-                        <span class="metric-value">60%</span>
-                        <span class="metric-label">Water Saved</span>
-                    </div>
-                </div>
+            <!-- Interactive FPO Icon -->
+            <div class="fpo-icon-container">
+                <svg class="fpo-group-icon" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central larger person representing FPO -->
+                    <g class="person central-person" data-index="0">
+                        <circle cx="200" cy="100" r="25" class="person-head" />
+                        <path d="M 200 125 L 200 180 M 175 145 L 225 145 M 200 180 L 175 220 M 200 180 L 225 220"
+                            class="person-body" stroke-width="8" stroke-linecap="round" />
+                    </g>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌾</div>
-                    <h3>More Crops</h3>
-                    <p>Grow multiple layers of crops on the same land throughout the year</p>
-                    <div class="benefit-metric">
-                        <span class="metric-value">3x</span>
-                        <span class="metric-label">Crop Output</span>
-                    </div>
-                </div>
+                    <!-- Surrounding farmers (8 people in circle) -->
+                    <g class="person farmer-person" data-index="1">
+                        <circle cx="120" cy="80" r="15" class="person-head" />
+                        <path d="M 120 95 L 120 130 M 105 110 L 135 110 M 120 130 L 105 155 M 120 130 L 135 155"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Solar Income</h3>
-                    <p>Earn from electricity generation while crops grow underneath</p>
-                    <div class="benefit-metric">
-                        <span class="metric-value">₹40K</span>
-                        <span class="metric-label">Monthly from Solar</span>
-                    </div>
-                </div>
+                    <g class="person farmer-person" data-index="2">
+                        <circle cx="280" cy="80" r="15" class="person-head" />
+                        <path d="M 280 95 L 280 130 M 265 110 L 295 110 M 280 130 L 265 155 M 280 130 L 295 155"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Regular Cash Flow</h3>
-                    <p>Multiple income streams reduce dependency on single harvest</p>
-                    <div class="benefit-metric">
-                        <span class="metric-value">12</span>
-                        <span class="metric-label">Months Income</span>
-                    </div>
-                </div>
+                    <g class="person farmer-person" data-index="3">
+                        <circle cx="340" cy="150" r="15" class="person-head" />
+                        <path d="M 340 165 L 340 200 M 325 180 L 355 180 M 340 200 L 325 225 M 340 200 L 355 225"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">🛡️</div>
-                    <h3>Reduced Risk</h3>
-                    <p>Diversified farming protects against crop failure and market fluctuations</p>
-                    <div class="benefit-metric">
-                        <span class="metric-value">80%</span>
-                        <span class="metric-label">Risk Reduction</span>
-                    </div>
-                </div>
+                    <g class="person farmer-person" data-index="4">
+                        <circle cx="60" cy="150" r="15" class="person-head" />
+                        <path d="M 60 165 L 60 200 M 45 180 L 75 180 M 60 200 L 45 225 M 60 200 L 75 225"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="5">
+                        <circle cx="100" cy="220" r="15" class="person-head" />
+                        <path d="M 100 235 L 100 270 M 85 250 L 115 250 M 100 270 L 85 295 M 100 270 L 115 295"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="6">
+                        <circle cx="300" cy="220" r="15" class="person-head" />
+                        <path d="M 300 235 L 300 270 M 285 250 L 315 250 M 300 270 L 285 295 M 300 270 L 315 295"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="7">
+                        <circle cx="160" cy="50" r="15" class="person-head" />
+                        <path d="M 160 65 L 160 100 M 145 80 L 175 80 M 160 100 L 145 125 M 160 100 L 175 125"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="8">
+                        <circle cx="240" cy="50" r="15" class="person-head" />
+                        <path d="M 240 65 L 240 100 M 225 80 L 255 80 M 240 100 L 225 125 M 240 100 L 255 125"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Connection lines -->
+                    <g class="connection-lines">
+                        <line x1="200" y1="100" x2="120" y2="80" class="connection-line" />
+                        <line x1="200" y1="100" x2="280" y2="80" class="connection-line" />
+                        <line x1="200" y1="100" x2="340" y2="150" class="connection-line" />
+                        <line x1="200" y1="100" x2="60" y2="150" class="connection-line" />
+                        <line x1="200" y1="100" x2="100" y2="220" class="connection-line" />
+                        <line x1="200" y1="100" x2="300" y2="220" class="connection-line" />
+                        <line x1="200" y1="100" x2="160" y2="50" class="connection-line" />
+                        <line x1="200" y1="100" x2="240" y2="50" class="connection-line" />
+                    </g>
+                </svg>
+                <p class="fpo-icon-label">Farmers are members and stakeholders, not customers</p>
             </div>
 
-            <!-- Before/After Comparison -->
-            <div class="comparison-section">
-                <h3>Before vs After Farm Transformation</h3>
-                <div class="comparison-slider">
-                    <div class="comparison-container">
-                        <div class="comparison-image before">
-                            <img src="assets/images/farm-before.jpg" alt="Traditional Farm" id="before-img">
-                            <div class="comparison-label">Before</div>
-                        </div>
-                        <div class="comparison-image after" id="after-section">
-                            <img src="assets/images/farm-after.jpg" alt="Engineered Farm" id="after-img">
-                            <div class="comparison-label">After</div>
-                        </div>
-                        <input type="range" min="0" max="100" value="50" class="slider" id="comparison-slider">
-                        <div class="slider-button" id="slider-button"></div>
-                    </div>
+            <!-- FPO Key Points Grid -->
+            <div class="fpo-points-grid">
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🏛️</div>
+                    <h3>Built Around FPOs</h3>
+                    <p>AGROVA is built around the FPO model, not outside it. Farmers are not customers; they are members
+                        and stakeholders.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🤝</div>
+                    <h3>Collective Action</h3>
+                    <p>An FPO allows farmers to act collectively, not individually. Individual farmers struggle; groups
+                        negotiate.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🌾</div>
+                    <h3>Land Aggregation</h3>
+                    <p>AGROVA uses FPOs to aggregate land without transferring ownership. Land always remains with the
+                        farmer.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">⚡</div>
+                    <h3>Scale & Viability</h3>
+                    <p>FPO enables cluster-based agrivoltaic projects. Solar projects are viable only at scale. FPO
+                        provides that scale legally and transparently.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🏛️</div>
+                    <h3>Government Support</h3>
+                    <p>Government schemes prefer FPOs over individuals. PM-KUSUM becomes easier through FPO
+                        participation. Subsidies are accessible only with proper structure.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">💰</div>
+                    <h3>Reduced Costs</h3>
+                    <p>FPO reduces project cost per farmer. Shared infrastructure lowers individual risk.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🏦</div>
+                    <h3>Financial Access</h3>
+                    <p>Banks trust FPOs more than individuals. Financing becomes possible without burdening one farmer.
+                    </p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">💵</div>
+                    <h3>Revenue Distribution</h3>
+                    <p>Revenue flows through the FPO system. Income distribution is proportional to land contribution.
+                        AGROVA designs this revenue-sharing logic.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🔒</div>
+                    <h3>Income Protection</h3>
+                    <p>Escrow accounts protect farmer income. FPO ensures timely loan repayment. Maintenance costs are
+                        shared and predictable.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">📈</div>
+                    <h3>Stable Income</h3>
+                    <p>Farmers receive stable monthly income from solar. Crop income becomes additional, not
+                        survival-based.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">�</div>
+                    <h3>Market Access</h3>
+                    <p>FPO improves market access for crops. Collective selling improves price discovery. Buyback
+                        becomes feasible through aggregated volumes.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🚫</div>
+                    <h3>Reduced Middlemen</h3>
+                    <p>Middlemen dependency reduces significantly. Knowledge and training reach all members.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">📚</div>
+                    <h3>Technology Adoption</h3>
+                    <p>Technology adoption becomes easier through group learning. Risk is distributed, not concentrated.
+                    </p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🌍</div>
+                    <h3>Climate Resilience</h3>
+                    <p>Climate shocks affect individuals, not the system. FPO creates resilience through numbers.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🤝</div>
+                    <h3>Strategic Partnership</h3>
+                    <p>AGROVA acts as the technical and strategic partner. FPO handles ownership and governance.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">⚖️</div>
+                    <h3>Democratic Governance</h3>
+                    <p>Decision-making becomes democratic and transparent. Disputes reduce due to predefined rules.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">📊</div>
+                    <h3>Scalable Model</h3>
+                    <p>Expansion happens by adding new members. The model scales village by village. Every FPO becomes a
+                        replicable AGROVA unit.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🎯</div>
+                    <h3>Producer Identity</h3>
+                    <p>Farmers gain identity as producers, not beneficiaries. Trust increases when systems replace
+                        promises.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🔄</div>
+                    <h3>Long-term Stability</h3>
+                    <p>Long-term stability replaces short-term subsidies. AGROVA aligns farmers, banks, and government.
+                    </p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">⚡</div>
+                    <h3>Integrated System</h3>
+                    <p>Energy and agriculture work together under one body. The FPO is the backbone of execution.</p>
+                </div>
+
+                <div class="fpo-card highlight-card">
+                    <div class="fpo-card-icon">✅</div>
+                    <h3>Essential, Not Optional</h3>
+                    <p><strong>Without FPO, AGROVA cannot scale. With FPO, AGROVA becomes sustainable. This is not
+                            optional — it is essential.</strong></p>
                 </div>
             </div>
         </div>
@@ -734,7 +882,7 @@
                         <li><a href="#problem">Problems</a></li>
                         <li><a href="#farm-design">Farm Design</a></li>
                         <li><a href="#technology">Technology</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#fpos">FPOs</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -766,6 +914,7 @@
     <script src="js/animations.js"></script>
     <script src="js/farm-interactive.js"></script>
     <script src="js/dark-mode.js"></script>
+    <script src="js/fpo-animations.js"></script>
     <script src="js/main.js"></script>
 </body>
 
