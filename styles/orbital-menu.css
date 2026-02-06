@@ -76,11 +76,15 @@
     transform: translateY(0);
 }
 
-/* Orbital Positions - 6 icons in perfect circle */
+/* Orbital Positions - 7 icons in perfect circle with equal spacing */
+/* Each icon is positioned at 360°/7 = 51.43° intervals */
+/* Using radius of 260px from center */
+
 .icon-orbit-1 {
-    top: 0;
+    /* 0° - Top */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%) translateY(-260px);
     animation: levitate1 3s ease-in-out infinite;
 }
 
@@ -89,8 +93,10 @@
 }
 
 .icon-orbit-2 {
-    top: 25%;
-    right: 0;
+    /* 51.43° - Top Right */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(51.43deg) translateY(-260px) rotate(-51.43deg);
     animation: levitate2 3s ease-in-out infinite 0.5s;
 }
 
@@ -99,8 +105,10 @@
 }
 
 .icon-orbit-3 {
-    bottom: 25%;
-    right: 0;
+    /* 102.86° - Right */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(102.86deg) translateY(-260px) rotate(-102.86deg);
     animation: levitate3 3s ease-in-out infinite 1s;
 }
 
@@ -109,9 +117,10 @@
 }
 
 .icon-orbit-4 {
-    bottom: 0;
+    /* 154.29° - Bottom Right */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%) rotate(154.29deg) translateY(-260px) rotate(-154.29deg);
     animation: levitate4 3s ease-in-out infinite 1.5s;
 }
 
@@ -120,8 +129,10 @@
 }
 
 .icon-orbit-5 {
-    bottom: 25%;
-    left: 0;
+    /* 205.71° - Bottom Left */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(205.71deg) translateY(-260px) rotate(-205.71deg);
     animation: levitate5 3s ease-in-out infinite 2s;
 }
 
@@ -130,8 +141,10 @@
 }
 
 .icon-orbit-6 {
-    top: 25%;
-    left: 0;
+    /* 257.14° - Left */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(257.14deg) translateY(-260px) rotate(-257.14deg);
     animation: levitate6 3s ease-in-out infinite 2.5s;
 }
 
@@ -139,16 +152,28 @@
     background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
 }
 
-/* Levitation Animations */
+.icon-orbit-7 {
+    /* 308.57° - Top Left */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(308.57deg) translateY(-260px) rotate(-308.57deg);
+    animation: levitate7 3s ease-in-out infinite 3s;
+}
+
+.icon-orbit-7 .icon-circle {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+/* Levitation Animations - Maintain circular position while floating */
 @keyframes levitate1 {
 
     0%,
     100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translate(-50%, -50%) translateY(-260px) scale(1);
     }
 
     50% {
-        transform: translateX(-50%) translateY(-20px);
+        transform: translate(-50%, -50%) translateY(-280px) scale(1.05);
     }
 }
 
@@ -156,11 +181,11 @@
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translate(-50%, -50%) rotate(51.43deg) translateY(-260px) rotate(-51.43deg) scale(1);
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translate(-50%, -50%) rotate(51.43deg) translateY(-280px) rotate(-51.43deg) scale(1.05);
     }
 }
 
@@ -168,11 +193,11 @@
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translate(-50%, -50%) rotate(102.86deg) translateY(-260px) rotate(-102.86deg) scale(1);
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translate(-50%, -50%) rotate(102.86deg) translateY(-280px) rotate(-102.86deg) scale(1.05);
     }
 }
 
@@ -180,11 +205,11 @@
 
     0%,
     100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translate(-50%, -50%) rotate(154.29deg) translateY(-260px) rotate(-154.29deg) scale(1);
     }
 
     50% {
-        transform: translateX(-50%) translateY(-20px);
+        transform: translate(-50%, -50%) rotate(154.29deg) translateY(-280px) rotate(-154.29deg) scale(1.05);
     }
 }
 
@@ -192,11 +217,11 @@
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translate(-50%, -50%) rotate(205.71deg) translateY(-260px) rotate(-205.71deg) scale(1);
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translate(-50%, -50%) rotate(205.71deg) translateY(-280px) rotate(-205.71deg) scale(1.05);
     }
 }
 
@@ -204,11 +229,23 @@
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translate(-50%, -50%) rotate(257.14deg) translateY(-260px) rotate(-257.14deg) scale(1);
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translate(-50%, -50%) rotate(257.14deg) translateY(-280px) rotate(-257.14deg) scale(1.05);
+    }
+}
+
+@keyframes levitate7 {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(308.57deg) translateY(-260px) rotate(-308.57deg) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(308.57deg) translateY(-280px) rotate(-308.57deg) scale(1.05);
     }
 }
 

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initScrollProgress();
     initSmoothScroll();
+    initSketchfab();
 });
 
 // ==========================================
@@ -376,6 +377,45 @@ const optimizedResize = debounce(() => {
 }, 250);
 
 window.addEventListener('resize', optimizedResize);
+
+// ==========================================
+// SKETCHFAB 3D MODEL LOADER
+// ==========================================
+
+function initSketchfab() {
+    const sketchfabIframe = document.querySelector('.sketchfab-embed-wrapper iframe');
+    const loadingMessage = document.querySelector('.sketchfab-loading');
+
+    if (!sketchfabIframe || !loadingMessage) return;
+
+    // Hide loading message when iframe loads
+    sketchfabIframe.addEventListener('load', () => {
+        setTimeout(() => {
+            loadingMessage.style.opacity = '0';
+            setTimeout(() => {
+                loadingMessage.style.display = 'none';
+            }, 500);
+        }, 2000); // Wait 2 seconds after load to ensure model is rendering
+    });
+
+    // Handle iframe errors
+    sketchfabIframe.addEventListener('error', () => {
+        loadingMessage.innerHTML = `
+            <p style="color: #E53935; font-weight: 600;">⚠️ Failed to load 3D model</p>
+            <p style="font-size: 0.875rem; margin-top: 0.5rem;">Please check your internet connection or try refreshing the page</p>
+        `;
+    });
+
+    // Timeout fallback - hide loading after 10 seconds regardless
+    setTimeout(() => {
+        if (loadingMessage.style.display !== 'none') {
+            loadingMessage.style.opacity = '0';
+            setTimeout(() => {
+                loadingMessage.style.display = 'none';
+            }, 500);
+        }
+    }, 10000);
+}
 
 // ==========================================
 // CONSOLE BRANDING

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="styles/dark-mode.css">
     <link rel="stylesheet" href="styles/cost-breakup.css">
     <link rel="stylesheet" href="styles/fpo-section.css">
+    <link rel="stylesheet" href="styles/revenue-flow.css">
 
     <!-- Three.js for 3D -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -89,6 +90,13 @@
                             <span class="icon">🤝</span>
                         </div>
                         <span class="icon-label">FPOs</span>
+                    </a>
+
+                    <a href="#revenue" class="menu-icon-orbit icon-orbit-7" title="Revenue">
+                        <div class="icon-circle">
+                            <span class="icon">💰</span>
+                        </div>
+                        <span class="icon-label">Revenue</span>
                     </a>
                 </div>
             </div>
@@ -247,18 +255,6 @@
                             <span class="stat-value" id="efficiency">100%</span>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Embedded Sketchfab Model -->
-            <div class="sketchfab-container">
-                <h3>Agri-Photovoltaic Plant Model</h3>
-                <div class="sketchfab-embed-wrapper">
-                    <iframe title="Agri-Photovoltaic Plant Version-1 (WIP-1)" frameborder="0" allowfullscreen
-                        mozallowfullscreen="true" webkitallowfullscreen="true"
-                        allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
-                        execution-while-out-of-viewport execution-while-not-rendered web-share
-                        src="https://sketchfab.com/models/73fddfd01b4244c9b8915709ad3d9474/embed"></iframe>
                 </div>
             </div>
         </div>
@@ -844,6 +840,366 @@
         </div>
     </section>
 
+    <!-- Revenue Distribution Section -->
+    <section id="revenue" class="revenue-section">
+        <div class="container">
+            <h2 class="section-title">💰 Revenue Distribution — Who Earns, How, and Why</h2>
+            <p class="section-subtitle">Understanding the complete money flow from electricity generation to stakeholder
+                earnings</p>
+
+            <!-- Money Flow Steps -->
+            <div class="money-flow-container">
+                <!-- Step 1: Revenue Source -->
+                <div class="flow-step" data-step="1">
+                    <div class="flow-step-header">
+                        <div class="flow-step-title">
+                            <span class="flow-icon">⚡</span>
+                            <h3>Step 1: Where Does the Money Come From?</h3>
+                        </div>
+                    </div>
+                    <div class="flow-step-content">
+                        <p><strong>State DISCOM</strong> buys solar power under PM-KUSUM scheme</p>
+                        <div class="flow-breakdown">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Fixed Tariff</span>
+                                <span class="breakdown-value">₹3–3.5 per unit</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Contract Duration</span>
+                                <span class="breakdown-value">25 years PPA</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Revenue Type</span>
+                                <span class="breakdown-value">Guaranteed & Predictable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <!-- Step 2: Total Revenue -->
+                <div class="flow-step" data-step="2">
+                    <div class="flow-step-header">
+                        <div class="flow-step-title">
+                            <span class="flow-icon">💵</span>
+                            <h3>Step 2: Total Money Generated (1 MW Example)</h3>
+                        </div>
+                        <span class="flow-amount">₹48.75 L/year</span>
+                    </div>
+                    <div class="flow-step-content">
+                        <div class="flow-breakdown">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Power Generated</span>
+                                <span class="breakdown-value">15 lakh units/year</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Tariff Rate</span>
+                                <span class="breakdown-value">₹3.25/unit</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Total Revenue</span>
+                                <span class="breakdown-value">15,00,000 × ₹3.25 = ₹48.75 L</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; color: #00FFFF; font-weight: 600;">This ₹48.75 lakh is the main
+                            revenue pot</p>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <!-- Step 3: Operating Costs -->
+                <div class="flow-step" data-step="3">
+                    <div class="flow-step-header">
+                        <div class="flow-step-title">
+                            <span class="flow-icon">🔧</span>
+                            <h3>Step 3: Operating Costs (OPEX)</h3>
+                        </div>
+                        <span class="flow-amount">₹4.5 L/year</span>
+                    </div>
+                    <div class="flow-step-content">
+                        <p>Before anyone earns, the plant must run efficiently</p>
+                        <div class="flow-breakdown">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Cleaning & Maintenance</span>
+                                <span class="breakdown-value">₹3.0 L</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Insurance</span>
+                                <span class="breakdown-value">₹0.7 L</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Monitoring & Admin</span>
+                                <span class="breakdown-value">₹0.8 L</span>
+                            </div>
+                            <div class="breakdown-item"
+                                style="border-top: 2px solid rgba(245, 166, 35, 0.5); padding-top: 0.5rem; margin-top: 0.5rem;">
+                                <span class="breakdown-label"><strong>Remaining Money</strong></span>
+                                <span class="breakdown-value"><strong>₹44.25 L</strong></span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; color: #00FFFF; font-weight: 600;">This ₹44.25 lakh gets distributed
+                            to stakeholders</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stakeholder Cards -->
+            <h3 style="text-align: center; font-size: 2.5rem; color: #fff; margin-bottom: 3rem; margin-top: 4rem;">
+                Who Gets This ₹44.25 Lakh and Why?
+            </h3>
+
+            <div class="stakeholders-grid">
+                <!-- Farmer / FPO -->
+                <div class="stakeholder-card" data-stakeholder="farmer">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🧑‍🌾</span>
+                        <div class="stakeholder-title">
+                            <h3>Farmer / FPO</h3>
+                            <p class="stakeholder-role">Land Owner + Beneficiary</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Annual Earnings</p>
+                        <p class="earnings-amount">₹6–10 L</p>
+                        <p class="earnings-range">Varies by model & land size</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>Why Farmer Earns:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>✓ Provides land (lease or revenue share)</li>
+                            <li>✓ Allows solar installation</li>
+                            <li>✓ Often consumes power for irrigation</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>How Farmer Earns:</strong></p>
+                        <p style="margin-top: 0.5rem;"><strong>Model A: Fixed Lease</strong><br>
+                            ₹1–1.5 lakh per acre/year<br>
+                            1 MW ≈ 4–5 acres = ₹6–8 lakh/year guaranteed</p>
+
+                        <p style="margin-top: 0.5rem;"><strong>Model B: Profit Share</strong><br>
+                            15–25% of net revenue = ₹7–10 lakh/year</p>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">Stable Income</span>
+                        <span class="benefit-tag">Risk-Free</span>
+                        <span class="benefit-tag">Free Daytime Power</span>
+                    </div>
+                </div>
+
+                <!-- Private Investor / Bank -->
+                <div class="stakeholder-card" data-stakeholder="investor">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🏦</span>
+                        <div class="stakeholder-title">
+                            <h3>Private Investor / Bank</h3>
+                            <p class="stakeholder-role">Money Provider</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Annual Earnings</p>
+                        <p class="earnings-amount">₹14–16 L</p>
+                        <p class="earnings-range">12–15% IRR</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>Why Investor Earns:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>✓ Puts real cash (30%+ of project cost)</li>
+                            <li>✓ Takes financial risk</li>
+                            <li>✓ Enables project execution</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>How They Earn:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>• Paid from remaining revenue after farmer share</li>
+                            <li>• Loan repayment (bank)</li>
+                            <li>• Equity dividend (private investor)</li>
+                            <li>• Full money recovered in 6–7 years</li>
+                            <li>• After that → mostly pure profit</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">Long-term Returns</span>
+                        <span class="benefit-tag">Low Risk</span>
+                        <span class="benefit-tag">Guaranteed Revenue</span>
+                    </div>
+                </div>
+
+                <!-- EPC & O&M Companies -->
+                <div class="stakeholder-card" data-stakeholder="epc">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🏗️</span>
+                        <div class="stakeholder-title">
+                            <h3>EPC & O&M Companies</h3>
+                            <p class="stakeholder-role">Builders & Operators</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Annual O&M Contract</p>
+                        <p class="earnings-amount">₹3–5 L</p>
+                        <p class="earnings-range">+ One-time EPC margin</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>EPC (Engineering, Procurement, Construction):</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>• Build the plant</li>
+                            <li>• One-time payment during installation</li>
+                            <li>• Margin: 8–12% of CAPEX</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>O&M (Operations & Maintenance):</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>• Clean panels regularly</li>
+                            <li>• Monitor performance</li>
+                            <li>• Annual contract: ₹3–5 lakh/year</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">Service-Based</span>
+                        <span class="benefit-tag">Recurring Revenue</span>
+                    </div>
+                </div>
+
+                <!-- Government -->
+                <div class="stakeholder-card" data-stakeholder="government">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🏛️</span>
+                        <div class="stakeholder-title">
+                            <h3>Government</h3>
+                            <p class="stakeholder-role">Indirect Benefits</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Direct Cash</p>
+                        <p class="earnings-amount">₹0</p>
+                        <p class="earnings-range">But massive indirect returns</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>Where Government Benefits:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>🔹 <strong>Reduced power subsidy</strong><br>
+                                Farmers shift to solar, less free power burden on DISCOMs</li>
+
+                            <li style="margin-top: 0.5rem;">🔹 <strong>Carbon credits</strong><br>
+                                Clean energy replaces fossil fuel, monetizable globally</li>
+
+                            <li style="margin-top: 0.5rem;">🔹 <strong>Rural jobs</strong><br>
+                                Installation, maintenance, local technicians</li>
+
+                            <li style="margin-top: 0.5rem;">🔹 <strong>Grid stability</strong><br>
+                                Daytime solar aligns with irrigation load</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">25-Year Benefits</span>
+                        <span class="benefit-tag">One-Time Investment</span>
+                        <span class="benefit-tag">Clean Energy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simple Money Flow Diagram -->
+            <div class="money-flow-visual">
+                <h3 style="text-align: center; color: #fff; font-size: 2rem; margin-bottom: 2rem;">
+                    Simple Money Flow Diagram
+                </h3>
+
+                <div class="flow-diagram">
+                    <div class="flow-node">
+                        <div class="flow-node-title">DISCOM Payment</div>
+                        <div class="flow-node-amount">₹48.75 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">OPEX (Plant Running Costs)</div>
+                        <div class="flow-node-amount">₹4.5 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">Farmer Share</div>
+                        <div class="flow-node-amount">₹6–10 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">Investor Returns</div>
+                        <div class="flow-node-amount">₹14–16 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">Surplus / Reserves / Expansion</div>
+                        <div class="flow-node-amount">Remaining</div>
+                    </div>
+                </div>
+
+                <!-- Floating Coins Animation -->
+                <span class="coin-animation" style="top: 10%; left: 10%;">💰</span>
+                <span class="coin-animation" style="top: 30%; right: 15%; animation-delay: 1s;">💵</span>
+                <span class="coin-animation" style="top: 50%; left: 20%; animation-delay: 2s;">💰</span>
+                <span class="coin-animation" style="top: 70%; right: 10%; animation-delay: 1.5s;">💵</span>
+            </div>
+
+            <!-- Government Benefits Highlight -->
+            <div class="government-benefits">
+                <h3>Government: Invests Once, Benefits for 25 Years</h3>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💰</span>
+                        <div class="benefit-content">
+                            <h4>Reduced Power Subsidy</h4>
+                            <p>Farmers shift to solar, reducing the free power burden on state DISCOMs significantly</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🌍</span>
+                        <div class="benefit-content">
+                            <h4>Carbon Credits</h4>
+                            <p>Clean energy replaces fossil fuel, creating monetizable carbon credits at national/global
+                                level</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">👷</span>
+                        <div class="benefit-content">
+                            <h4>Rural Job Creation</h4>
+                            <p>Installation, maintenance, and local technician jobs boost rural employment</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⚡</span>
+                        <div class="benefit-content">
+                            <h4>Grid Stability</h4>
+                            <p>Daytime solar generation aligns perfectly with irrigation load, reducing peak stress</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Vision Section -->
     <section id="vision" class="vision-section">
         <div class="vision-background">
@@ -859,6 +1215,83 @@
                 while integrating modern technology. The result: sustainable, profitable, and climate-resilient
                 agriculture.
             </p>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">🌾 The Transformation</h2>
+            <p class="section-subtitle">See how AGROVA transforms traditional farms into sustainable agri-photovoltaic
+                powerhouses</p>
+
+            <div class="comparison-section" style="margin-top: 4rem;">
+                <h3>Traditional Farm vs. Agri-Photovoltaic Farm</h3>
+                <div class="comparison-slider">
+                    <div class="comparison-container" id="comparison-container">
+                        <!-- Before Image -->
+                        <div class="comparison-image before">
+                            <img src="assets/images/farm-before.jpg"
+                                alt="Traditional farm with basic irrigation and conventional farming methods">
+                            <div class="comparison-label">BEFORE: Traditional Farm</div>
+                        </div>
+
+                        <!-- After Image -->
+                        <div class="comparison-image after" id="after-section">
+                            <img src="assets/images/farm-after.jpg"
+                                alt="Modern agri-photovoltaic farm with solar panels and thriving crops">
+                            <div class="comparison-label">AFTER: Agri-Photovoltaic Farm</div>
+                        </div>
+
+                        <!-- Slider Control -->
+                        <input type="range" min="0" max="100" value="50" class="slider" id="comparison-slider">
+                        <div class="slider-button" id="slider-button"></div>
+                    </div>
+                </div>
+
+                <!-- Transformation Benefits -->
+                <div class="benefits-grid" style="margin-top: 4rem;">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3>3x Income Increase</h3>
+                        <p>Farmers earn from crops, land lease, and free daytime power</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">300%</span>
+                            <span class="metric-label">Revenue Growth</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Clean Energy Generation</h3>
+                        <p>15 lakh units/year from 1 MW plant powering rural communities</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">15L</span>
+                            <span class="metric-label">Units/Year</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌱</div>
+                        <h3>Sustainable Agriculture</h3>
+                        <p>Crops thrive under panels with reduced water needs and heat stress</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">30%</span>
+                            <span class="metric-label">Water Savings</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌍</div>
+                        <h3>Carbon Reduction</h3>
+                        <p>Replacing fossil fuels with clean solar energy for 25 years</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">12K</span>
+                            <span class="metric-label">Tons CO₂ Saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -897,9 +1330,9 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li>Email: info@agrova.com</li>
-                        <li>Phone: +91 98765 43210</li>
-                        <li>Address: Bangalore, India</li>
+                        <li>Email: sandeepthej3@gmail.com</li>
+                        <li>Phone: +91 8142817018</li>
+                        <li>Address: Chennai, India</li>
                     </ul>
                 </div>
             </div>
@@ -915,6 +1348,7 @@
     <script src="js/farm-interactive.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/fpo-animations.js"></script>
+    <script src="js/revenue-animations.js"></script>
     <script src="js/main.js"></script>
 </body>
 
