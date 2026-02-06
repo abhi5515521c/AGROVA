@@ -1,0 +1,299 @@
+/* ==========================================
+   ORBITAL MENU SYSTEM - ADDITIONS
+   ========================================== */
+
+/* Circular Container for Orbital Layout */
+.logo-container-circular {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Central Hero Icon */
+.hero-logo-central {
+    width: 300px;
+    height: 300px;
+    display: block;
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.2));
+    transition: all var(--transition-slow);
+    animation: centralPulse 4s ease-in-out infinite;
+    z-index: 5;
+}
+
+.hero-logo-central:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 20px 50px rgba(255, 193, 7, 0.4));
+}
+
+/* Orbiting Menu Icons */
+.menu-icon-orbit {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.menu-icon-orbit .icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-base);
+    border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.menu-icon-orbit .icon {
+    font-size: 2.25rem;
+    transition: transform var(--transition-base);
+}
+
+.menu-icon-orbit:hover .icon-circle {
+    transform: scale(1.3) rotate(15deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-width: 4px;
+}
+
+.menu-icon-orbit:hover .icon {
+    transform: scale(1.15);
+}
+
+.menu-icon-orbit:hover .icon-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Orbital Positions - 6 icons in perfect circle */
+.icon-orbit-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: levitate1 3s ease-in-out infinite;
+}
+
+.icon-orbit-1 .icon-circle {
+    background: linear-gradient(135deg, #64B5F6 0%, #2196F3 100%);
+}
+
+.icon-orbit-2 {
+    top: 25%;
+    right: 0;
+    animation: levitate2 3s ease-in-out infinite 0.5s;
+}
+
+.icon-orbit-2 .icon-circle {
+    background: linear-gradient(135deg, #EF5350 0%, #E53935 100%);
+}
+
+.icon-orbit-3 {
+    bottom: 25%;
+    right: 0;
+    animation: levitate3 3s ease-in-out infinite 1s;
+}
+
+.icon-orbit-3 .icon-circle {
+    background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+}
+
+.icon-orbit-4 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: levitate4 3s ease-in-out infinite 1.5s;
+}
+
+.icon-orbit-4 .icon-circle {
+    background: linear-gradient(135deg, #AB47BC 0%, #8E24AA 100%);
+}
+
+.icon-orbit-5 {
+    bottom: 25%;
+    left: 0;
+    animation: levitate5 3s ease-in-out infinite 2s;
+}
+
+.icon-orbit-5 .icon-circle {
+    background: linear-gradient(135deg, #FDD835 0%, #FBC02D 100%);
+}
+
+.icon-orbit-6 {
+    top: 25%;
+    left: 0;
+    animation: levitate6 3s ease-in-out infinite 2.5s;
+}
+
+.icon-orbit-6 .icon-circle {
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+}
+
+/* Levitation Animations */
+@keyframes levitate1 {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+
+@keyframes levitate2 {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes levitate3 {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes levitate4 {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+
+@keyframes levitate5 {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes levitate6 {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes centralPulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.2));
+    }
+
+    50% {
+        filter: drop-shadow(0 20px 50px rgba(255, 193, 7, 0.3));
+    }
+}
+
+@keyframes slowRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Orbital System */
+@media (max-width: 1024px) {
+    .logo-container-circular {
+        width: 500px;
+        height: 500px;
+    }
+
+    .hero-logo-central {
+        width: 250px;
+        height: 250px;
+    }
+
+    .menu-icon-orbit .icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .menu-icon-orbit .icon {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-container-circular {
+        width: 400px;
+        height: 400px;
+    }
+
+    .hero-logo-central {
+        width: 200px;
+        height: 200px;
+    }
+
+    .menu-icon-orbit .icon-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .menu-icon-orbit .icon {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container-circular {
+        width: 320px;
+        height: 320px;
+    }
+
+    .hero-logo-central {
+        width: 160px;
+        height: 160px;
+    }
+
+    .menu-icon-orbit .icon-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu-icon-orbit .icon {
+        font-size: 1.5rem;
+    }
+}

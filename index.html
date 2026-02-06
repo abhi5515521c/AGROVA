@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Redesigning Indian farms with agrivoltaics, hydroponics, and vertical polyhouses. Engineering farms for food, energy, and water efficiency.">
+    <title>AGROVA | Agrivoltaics & Smart Farming Solutions</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/orbital-menu.css">
+    <link rel="stylesheet" href="styles/dark-mode.css">
+    <link rel="stylesheet" href="styles/cost-breakup.css">
+
+    <!-- Three.js for 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+    </button>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background">
+            <canvas id="hero-canvas"></canvas>
+        </div>
+        <div class="hero-content">
+            <!-- Interactive AGROVA Icon with Orbiting Menu Icons -->
+            <div class="hero-logo-interactive">
+                <div class="logo-container-circular">
+                    <!-- Central Icon -->
+                    <img src="assets/images/agrova-icon-hero.png" alt="AGROVA" class="hero-logo-central">
+
+                    <!-- Orbiting Menu Icons -->
+                    <a href="#hero" class="menu-icon-orbit icon-orbit-1" title="Home">
+                        <div class="icon-circle">
+                            <span class="icon">🏠</span>
+                        </div>
+                        <span class="icon-label">Home</span>
+                    </a>
+
+                    <a href="#problem" class="menu-icon-orbit icon-orbit-2" title="Problem">
+                        <div class="icon-circle">
+                            <span class="icon">⚠️</span>
+                        </div>
+                        <span class="icon-label">Problem</span>
+                    </a>
+
+                    <a href="#farm-design" class="menu-icon-orbit icon-orbit-3" title="Farm Design">
+                        <div class="icon-circle">
+                            <span class="icon">🌾</span>
+                        </div>
+                        <span class="icon-label">Farm Design</span>
+                    </a>
+
+                    <a href="#how-we-work" class="menu-icon-orbit icon-orbit-4" title="Process">
+                        <div class="icon-circle">
+                            <span class="icon">⚙️</span>
+                        </div>
+                        <span class="icon-label">Process</span>
+                    </a>
+
+                    <a href="#technology" class="menu-icon-orbit icon-orbit-5" title="Technology">
+                        <div class="icon-circle">
+                            <span class="icon">⚡</span>
+                        </div>
+                        <span class="icon-label">Technology</span>
+                    </a>
+
+                    <a href="#benefits" class="menu-icon-orbit icon-orbit-6" title="Benefits">
+                        <div class="icon-circle">
+                            <span class="icon">🏆</span>
+                        </div>
+                        <span class="icon-label">Benefits</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Rooted In Nature</span>
+                    <span class="title-line highlight">Powered By Future.</span>
+                </h1>
+                <p class="hero-subtitle">We redesign farms to produce food, energy, and income together.</p>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Problems We Solve</h2>
+            <p class="section-subtitle">Traditional farming faces critical challenges that limit productivity and income
+            </p>
+
+            <div class="problems-grid">
+                <div class="problem-card" data-problem="1">
+                    <div class="problem-icon">💧</div>
+                    <h3>Water Loss</h3>
+                    <p>Up to 70% water wasted through evaporation and inefficient irrigation</p>
+                    <div class="problem-stat">70% wasted</div>
+                </div>
+
+                <div class="problem-card" data-problem="2">
+                    <div class="problem-icon">🌡️</div>
+                    <h3>Heat Stress & Climate Extremes</h3>
+                    <p>Intense solar irradiation and extreme temperatures damage crops. APV panels create protective
+                        micro-climate reducing heat stress</p>
+                    <div class="problem-stat">Up to 33% yield loss</div>
+                </div>
+
+                <div class="problem-card" data-problem="3">
+                    <div class="problem-icon">💰</div>
+                    <h3>Low Income</h3>
+                    <p>Single-crop dependency creates income instability for farmers</p>
+                    <div class="problem-stat">Unstable income</div>
+                </div>
+
+                <div class="problem-card" data-problem="4">
+                    <div class="problem-icon">☀️</div>
+                    <h3>Untapped Solar Potential</h3>
+                    <p>India has 2.8-13.8 TW APV potential. Farmland can generate both food and clean energy
+                        simultaneously</p>
+                    <div class="problem-stat">2800+ GW potential</div>
+                </div>
+
+                <div class="problem-card" data-problem="5">
+                    <div class="problem-icon">🌾</div>
+                    <h3>Single-Layer Farming</h3>
+                    <p>Land used inefficiently with only horizontal cultivation</p>
+                    <div class="problem-stat">Limited output</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Farm Design Section -->
+    <section id="farm-design" class="farm-design-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Farm Design</h2>
+            <p class="section-subtitle">Toggle different elements to see how we engineer complete farm systems</p>
+
+            <div class="farm-design-container">
+                <!-- 3D Canvas -->
+                <div class="farm-3d-viewer">
+                    <canvas id="farm-canvas"></canvas>
+                    <div class="viewer-controls">
+                        <button class="view-control" data-view="top">Top View</button>
+                        <button class="view-control" data-view="side">Side View</button>
+                        <button class="view-control active" data-view="perspective">3D View</button>
+                    </div>
+                </div>
+
+                <!-- Toggle Controls -->
+                <div class="farm-controls">
+                    <h3>Farm Elements</h3>
+                    <div class="control-group">
+                        <div class="toggle-item active" data-layer="soil">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">🌱</span>
+                                <span class="toggle-label">Soil Crops</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-soil" checked>
+                                    <label for="toggle-soil"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Traditional ground-level crops optimized for local climate</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="solar">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">⚡</span>
+                                <span class="toggle-label">Agrivoltaic Panels</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-solar" checked>
+                                    <label for="toggle-solar"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Solar panels providing shade and generating electricity</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="hydro">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">🏗️</span>
+                                <span class="toggle-label">Hydroponic Units</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-hydro" checked>
+                                    <label for="toggle-hydro"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Vertical farming systems for high-value crops</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="mulch">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">🛡️</span>
+                                <span class="toggle-label">Mulch Layer</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-mulch" checked>
+                                    <label for="toggle-mulch"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Protective layer reducing water evaporation</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="irrigation">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">💦</span>
+                                <span class="toggle-label">Smart Irrigation</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-irrigation" checked>
+                                    <label for="toggle-irrigation"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Automated drip irrigation with sensors</p>
+                        </div>
+                    </div>
+
+                    <div class="farm-stats">
+                        <div class="farm-stat-item">
+                            <span class="stat-label">Layers Active</span>
+                            <span class="stat-value" id="active-layers">5</span>
+                        </div>
+                        <div class="farm-stat-item">
+                            <span class="stat-label">Efficiency</span>
+                            <span class="stat-value" id="efficiency">100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Embedded Sketchfab Model -->
+            <div class="sketchfab-container">
+                <h3>Agri-Photovoltaic Plant Model</h3>
+                <div class="sketchfab-embed-wrapper">
+                    <iframe title="Agri-Photovoltaic Plant Version-1 (WIP-1)" frameborder="0" allowfullscreen
+                        mozallowfullscreen="true" webkitallowfullscreen="true"
+                        allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+                        execution-while-out-of-viewport execution-while-not-rendered web-share
+                        src="https://sketchfab.com/models/73fddfd01b4244c9b8915709ad3d9474/embed"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="how-we-work-section">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+            <p class="section-subtitle">A systematic approach to farm engineering</p>
+
+            <div class="timeline">
+                <div class="timeline-item" data-step="1">
+                    <div class="timeline-marker">
+                        <span class="step-number">01</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Soil Testing & Climate Analysis</h3>
+                        <p>We analyze your soil composition, water table, and local climate patterns to understand the
+                            farm's potential.</p>
+                        <ul class="feature-list">
+                            <li>Comprehensive soil nutrient testing</li>
+                            <li>Water quality and availability assessment</li>
+                            <li>Microclimate mapping</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="2">
+                    <div class="timeline-marker">
+                        <span class="step-number">02</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Crop Selection</h3>
+                        <p>Based on data, we recommend the best crop combinations for maximum yield and market value.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Multi-crop rotation planning</li>
+                            <li>High-value crop identification</li>
+                            <li>Market demand analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="3">
+                    <div class="timeline-marker">
+                        <span class="step-number">03</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Farm Layout Design</h3>
+                        <p>We create a detailed 3D blueprint showing how every element fits together on your land.</p>
+                        <ul class="feature-list">
+                            <li>CAD-based farm modeling</li>
+                            <li>Optimal spacing calculations</li>
+                            <li>Sunlight and shadow analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="4">
+                    <div class="timeline-marker">
+                        <span class="step-number">04</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Agrivoltaic Installation</h3>
+                        <p>Solar panels are installed at optimal heights and angles to provide shade while generating
+                            electricity.</p>
+                        <ul class="feature-list">
+                            <li>PM-KUSUM scheme integration</li>
+                            <li>Grid connection setup</li>
+                            <li>Dual-use land optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="5">
+                    <div class="timeline-marker">
+                        <span class="step-number">05</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Hydroponics & Polyhouse Setup</h3>
+                        <p>Vertical farming structures are built for year-round production of high-value crops.</p>
+                        <ul class="feature-list">
+                            <li>Climate-controlled polyhouses</li>
+                            <li>Automated nutrient delivery</li>
+                            <li>Vertical space utilization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="6">
+                    <div class="timeline-marker">
+                        <span class="step-number">06</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Market Linkage & Buyback Support</h3>
+                        <p>We connect you with buyers and provide guaranteed purchase agreements for your produce.</p>
+                        <ul class="feature-list">
+                            <li>Direct market connections</li>
+                            <li>Price guarantee programs</li>
+                            <li>Ongoing technical support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="technology-section">
+        <div class="container">
+            <h2 class="section-title">Our Technology Stack</h2>
+            <p class="section-subtitle">Simple, proven technologies working together</p>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h3>Agri-Photovoltaics (APV)</h3>
+                    <p>Solar panels elevated 5-7.8 meters above crops create optimal micro-climate, protecting from heat
+                        stress while generating clean energy. Reduces evapotranspiration and improves PV efficiency
+                        through natural cooling.</p>
+                    <div class="tech-benefit">India's APV potential: 2.8-13.8 TW</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">💧</div>
+                    <h3>Hydroponics</h3>
+                    <p>Soil-free farming using water and nutrients. Grows crops faster with 90% less water.</p>
+                    <div class="tech-benefit">90% water savings</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🏗️</div>
+                    <h3>Vertical Polyhouse</h3>
+                    <p>Multi-layer farming structures that multiply your growing space without needing more land.</p>
+                    <div class="tech-benefit">3x more crops per acre</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🛡️</div>
+                    <h3>Mulch & Water Saving</h3>
+                    <p>Protective ground cover that locks moisture in soil and prevents weed growth.</p>
+                    <div class="tech-benefit">60% less water evaporation</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">☀️</div>
+                    <h3>Solar + PM-KUSUM</h3>
+                    <p>Government scheme providing 90% subsidy for solar installation on farms.</p>
+                    <div class="tech-benefit">90% subsidy available</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🧠</div>
+                    <h3>Soil Intelligence</h3>
+                    <p>Sensors monitor soil health, moisture, and nutrients in real-time for better decisions.</p>
+                    <div class="tech-benefit">Data-driven farming</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APV Technical Specifications Section -->
+    <section id="apv-specs" class="technology-section" style="background: var(--color-white); padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title">Agri-Photovoltaic System Specifications</h2>
+            <p class="section-subtitle">Technical details based on CSTEP research and industry standards</p>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">📐</div>
+                    <h3>System Configurations</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Overhead systems (south-facing & east-west)</li>
+                        <li>Inter-row south orientation</li>
+                        <li>Interspace vertical orientation</li>
+                        <li>Optimized for 17+ crop varieties</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">📏</div>
+                    <h3>Technical Parameters</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Clearance height: 5 meters minimum</li>
+                        <li>Installation height: Up to 7.8 meters</li>
+                        <li>Unit width: 19 meters</li>
+                        <li>Foundation: Corkscrew bolts (no concrete)</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🌿</div>
+                    <h3>Suitable Crops</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Leafy greens (shade-loving)</li>
+                        <li>Tomatoes & vegetables</li>
+                        <li>Root vegetables & tubers</li>
+                        <li>Yield reduction: Max 33% (regulatory)</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🌍</div>
+                    <h3>Environmental Benefits</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Enhanced biodiversity & ecosystem health</li>
+                        <li>Improved soil quality</li>
+                        <li>Better water regulation</li>
+                        <li>Climate change adaptation</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">💰</div>
+                    <h3>Economic Impact</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Diversified farmer income streams</li>
+                        <li>Energy entrepreneur opportunities</li>
+                        <li>Rural job creation</li>
+                        <li>Strengthened rural economies</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🔬</div>
+                    <h3>Performance Metrics</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Reduced evapotranspiration</li>
+                        <li>Improved PV module efficiency</li>
+                        <li>Protection from extreme weather</li>
+                        <li>Longer PV module lifespan</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- APV Benefits Highlight -->
+            <div class="comparison-section" style="margin-top: 4rem;">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--color-soil-brown);">
+                    Why APV is Perfect for India
+                </h3>
+                <div class="benefits-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">🌾</div>
+                        <h3>Land Optimization</h3>
+                        <p>Same land produces both food and energy, addressing land scarcity challenges</p>
+                    </div>
+
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #E8F5E9 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">🌡️</div>
+                        <h3>Micro-Climate Control</h3>
+                        <p>Panels protect crops from intense heat, strong winds, and extreme temperatures</p>
+                    </div>
+
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">💧</div>
+                        <h3>Water Conservation</h3>
+                        <p>Reduced evapotranspiration means significantly lower water requirements</p>
+                    </div>
+
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #FFF9C4 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Enhanced PV Performance</h3>
+                        <p>Cooler micro-climate improves solar panel efficiency and extends lifespan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Breakup Section -->
+    <section class="cost-breakup-section">
+        <div class="container">
+            <h2 class="section-title">1 MW APV Plant Cost Breakup</h2>
+            <p class="section-subtitle">Transparent capital expenditure breakdown</p>
+
+            <div class="cost-grid">
+                <!-- Visualization -->
+                <div class="chart-container">
+                    <div class="doughnut-chart"></div>
+                    <div class="chart-center-content">
+                        <span class="chart-total">1 MW</span>
+                        <span class="chart-label">Capacity</span>
+                    </div>
+                </div>
+
+                <!-- Details List -->
+                <div class="cost-details">
+                    <div class="cost-item item-solar">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">☀️</span>
+                            <div class="item-text">
+                                <h4>Solar Panels</h4>
+                                <span>2,200 modules (550 Wp)</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">57%</span>
+                    </div>
+
+                    <div class="cost-item item-structure">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🏗️</span>
+                            <div class="item-text">
+                                <h4>Mounting Structure</h4>
+                                <span>Overhead elevated structure</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">31%</span>
+                    </div>
+
+                    <div class="cost-item item-inverter">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">⚡</span>
+                            <div class="item-text">
+                                <h4>Inverters</h4>
+                                <span>String inverters</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">4%</span>
+                    </div>
+
+                    <div class="cost-item item-prep">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🚜</span>
+                            <div class="item-text">
+                                <h4>Site Preparation</h4>
+                                <span>Preliminary expenses & civil</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">3%</span>
+                    </div>
+
+                    <div class="cost-item item-cables">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🔌</span>
+                            <div class="item-text">
+                                <h4>Cables & Electrical</h4>
+                                <span>DC/AC cabling standard rates</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">3%</span>
+                    </div>
+
+                    <div class="cost-item item-misc">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🌾</span>
+                            <div class="item-text">
+                                <h4>Miscellaneous</h4>
+                                <span>Fencing & other costs</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">2%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Farmer Benefits</h2>
+            <p class="section-subtitle">Real results from engineered farms</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💧</div>
+                    <h3>Less Water</h3>
+                    <p>Save up to 60% water through drip irrigation, mulching, and hydroponics</p>
+                    <div class="benefit-metric">
+                        <span class="metric-value">60%</span>
+                        <span class="metric-label">Water Saved</span>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌾</div>
+                    <h3>More Crops</h3>
+                    <p>Grow multiple layers of crops on the same land throughout the year</p>
+                    <div class="benefit-metric">
+                        <span class="metric-value">3x</span>
+                        <span class="metric-label">Crop Output</span>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Solar Income</h3>
+                    <p>Earn from electricity generation while crops grow underneath</p>
+                    <div class="benefit-metric">
+                        <span class="metric-value">₹40K</span>
+                        <span class="metric-label">Monthly from Solar</span>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Regular Cash Flow</h3>
+                    <p>Multiple income streams reduce dependency on single harvest</p>
+                    <div class="benefit-metric">
+                        <span class="metric-value">12</span>
+                        <span class="metric-label">Months Income</span>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Reduced Risk</h3>
+                    <p>Diversified farming protects against crop failure and market fluctuations</p>
+                    <div class="benefit-metric">
+                        <span class="metric-value">80%</span>
+                        <span class="metric-label">Risk Reduction</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Before/After Comparison -->
+            <div class="comparison-section">
+                <h3>Before vs After Farm Transformation</h3>
+                <div class="comparison-slider">
+                    <div class="comparison-container">
+                        <div class="comparison-image before">
+                            <img src="assets/images/farm-before.jpg" alt="Traditional Farm" id="before-img">
+                            <div class="comparison-label">Before</div>
+                        </div>
+                        <div class="comparison-image after" id="after-section">
+                            <img src="assets/images/farm-after.jpg" alt="Engineered Farm" id="after-img">
+                            <div class="comparison-label">After</div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="comparison-slider">
+                        <div class="slider-button" id="slider-button"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision-section">
+        <div class="vision-background">
+            <canvas id="vision-canvas"></canvas>
+        </div>
+        <div class="vision-content">
+            <h2 class="vision-statement">
+                We are not improving farming.<br>
+                <span class="highlight">We are redesigning farms.</span>
+            </h2>
+            <p class="vision-description">
+                Every farm is a unique ecosystem. We engineer each one to maximize its natural potential
+                while integrating modern technology. The result: sustainable, profitable, and climate-resilient
+                agriculture.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AGROVA</h3>
+                    <p>Redesigning Indian farms for a sustainable future.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#problem">Problems</a></li>
+                        <li><a href="#farm-design">Farm Design</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">PM-KUSUM Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: info@agrova.com</li>
+                        <li>Phone: +91 98765 43210</li>
+                        <li>Address: Bangalore, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AGROVA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/three-setup.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/farm-interactive.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
