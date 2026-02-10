@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Redesigning Indian farms with agrivoltaics, hydroponics, and vertical polyhouses. Engineering farms for food, energy, and water efficiency.">
+    <title>AGROVA | Agrivoltaics & Smart Farming Solutions</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/orbital-menu.css">
+    <link rel="stylesheet" href="styles/dark-mode.css">
+    <link rel="stylesheet" href="styles/cost-breakup.css">
+    <link rel="stylesheet" href="styles/fpo-section.css">
+    <link rel="stylesheet" href="styles/revenue-flow.css">
+
+    <!-- Three.js for 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+    </button>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background">
+            <canvas id="hero-canvas"></canvas>
+        </div>
+        <div class="hero-content">
+            <!-- Interactive AGROVA Icon with Orbiting Menu Icons -->
+            <div class="hero-logo-interactive">
+                <div class="logo-container-circular">
+                    <!-- Central Icon -->
+                    <img src="assets/images/agrova-icon-hero.png" alt="AGROVA" class="hero-logo-central">
+
+                    <!-- Orbiting Menu Icons -->
+                    <a href="#hero" class="menu-icon-orbit icon-orbit-1" title="Home">
+                        <div class="icon-circle">
+                            <span class="icon">🏠</span>
+                        </div>
+                        <span class="icon-label">Home</span>
+                    </a>
+
+                    <a href="#problem" class="menu-icon-orbit icon-orbit-2" title="Problem">
+                        <div class="icon-circle">
+                            <span class="icon">⚠️</span>
+                        </div>
+                        <span class="icon-label">Problem</span>
+                    </a>
+
+                    <a href="#farm-design" class="menu-icon-orbit icon-orbit-3" title="Farm Design">
+                        <div class="icon-circle">
+                            <span class="icon">🌾</span>
+                        </div>
+                        <span class="icon-label">Farm Design</span>
+                    </a>
+
+                    <a href="#how-we-work" class="menu-icon-orbit icon-orbit-4" title="Process">
+                        <div class="icon-circle">
+                            <span class="icon">⚙️</span>
+                        </div>
+                        <span class="icon-label">Process</span>
+                    </a>
+
+                    <a href="#technology" class="menu-icon-orbit icon-orbit-5" title="Technology">
+                        <div class="icon-circle">
+                            <span class="icon">⚡</span>
+                        </div>
+                        <span class="icon-label">Technology</span>
+                    </a>
+
+                    <a href="#fpos" class="menu-icon-orbit icon-orbit-6" title="FPOs">
+                        <div class="icon-circle">
+                            <span class="icon">🤝</span>
+                        </div>
+                        <span class="icon-label">FPOs</span>
+                    </a>
+
+                    <a href="#revenue" class="menu-icon-orbit icon-orbit-7" title="Revenue">
+                        <div class="icon-circle">
+                            <span class="icon">💰</span>
+                        </div>
+                        <span class="icon-label">Revenue</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Rooted In Nature</span>
+                    <span class="title-line highlight">Powered By Future.</span>
+                </h1>
+                <p class="hero-subtitle">We redesign farms to produce food, energy, and income together.</p>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Problems We Solve</h2>
+            <p class="section-subtitle">Traditional farming faces critical challenges that limit productivity and income
+            </p>
+
+            <div class="problems-grid">
+                <div class="problem-card" data-problem="1">
+                    <div class="problem-icon">💧</div>
+                    <h3>Water Loss</h3>
+                    <p>Up to 70% water wasted through evaporation and inefficient irrigation</p>
+                    <div class="problem-stat">70% wasted</div>
+                </div>
+
+                <div class="problem-card" data-problem="2">
+                    <div class="problem-icon">🌡️</div>
+                    <h3>Heat Stress & Climate Extremes</h3>
+                    <p>Intense solar irradiation and extreme temperatures damage crops. APV panels create protective
+                        micro-climate reducing heat stress</p>
+                    <div class="problem-stat">Up to 33% yield loss</div>
+                </div>
+
+                <div class="problem-card" data-problem="3">
+                    <div class="problem-icon">💰</div>
+                    <h3>Low Income</h3>
+                    <p>Single-crop dependency creates income instability for farmers</p>
+                    <div class="problem-stat">Unstable income</div>
+                </div>
+
+                <div class="problem-card" data-problem="4">
+                    <div class="problem-icon">☀️</div>
+                    <h3>Untapped Solar Potential</h3>
+                    <p>India has 2.8-13.8 TW APV potential. Farmland can generate both food and clean energy
+                        simultaneously</p>
+                    <div class="problem-stat">2800+ GW potential</div>
+                </div>
+
+                <div class="problem-card" data-problem="5">
+                    <div class="problem-icon">🌾</div>
+                    <h3>Single-Layer Farming</h3>
+                    <p>Land used inefficiently with only horizontal cultivation</p>
+                    <div class="problem-stat">Limited output</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Farm Design Section -->
+    <section id="farm-design" class="farm-design-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Farm Design</h2>
+            <p class="section-subtitle">Toggle different elements to see how we engineer complete farm systems</p>
+
+            <div class="farm-design-container">
+                <!-- 3D Canvas -->
+                <div class="farm-3d-viewer">
+                    <canvas id="farm-canvas"></canvas>
+                    <div class="viewer-controls">
+                        <button class="view-control" data-view="top">Top View</button>
+                        <button class="view-control" data-view="side">Side View</button>
+                        <button class="view-control active" data-view="perspective">3D View</button>
+                    </div>
+                </div>
+
+                <!-- Toggle Controls -->
+                <div class="farm-controls">
+                    <h3>Farm Elements</h3>
+                    <div class="control-group">
+                        <div class="toggle-item active" data-layer="soil">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">🌱</span>
+                                <span class="toggle-label">Soil Crops</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-soil" checked>
+                                    <label for="toggle-soil"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Traditional ground-level crops optimized for local climate</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="solar">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">⚡</span>
+                                <span class="toggle-label">Agrivoltaic Panels</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-solar" checked>
+                                    <label for="toggle-solar"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Solar panels providing shade and generating electricity</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="hydro">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">🏗️</span>
+                                <span class="toggle-label">Hydroponic Units</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-hydro" checked>
+                                    <label for="toggle-hydro"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Vertical farming systems for high-value crops</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="mulch">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">🛡️</span>
+                                <span class="toggle-label">Mulch Layer</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-mulch" checked>
+                                    <label for="toggle-mulch"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Protective layer reducing water evaporation</p>
+                        </div>
+
+                        <div class="toggle-item active" data-layer="irrigation">
+                            <div class="toggle-header">
+                                <span class="toggle-icon">💦</span>
+                                <span class="toggle-label">Smart Irrigation</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle-irrigation" checked>
+                                    <label for="toggle-irrigation"></label>
+                                </div>
+                            </div>
+                            <p class="toggle-description">Automated drip irrigation with sensors</p>
+                        </div>
+                    </div>
+
+                    <div class="farm-stats">
+                        <div class="farm-stat-item">
+                            <span class="stat-label">Layers Active</span>
+                            <span class="stat-value" id="active-layers">5</span>
+                        </div>
+                        <div class="farm-stat-item">
+                            <span class="stat-label">Efficiency</span>
+                            <span class="stat-value" id="efficiency">100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="how-we-work-section">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+            <p class="section-subtitle">A systematic approach to farm engineering</p>
+
+            <div class="timeline">
+                <div class="timeline-item" data-step="1">
+                    <div class="timeline-marker">
+                        <span class="step-number">01</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Soil Testing & Climate Analysis</h3>
+                        <p>We analyze your soil composition, water table, and local climate patterns to understand the
+                            farm's potential.</p>
+                        <ul class="feature-list">
+                            <li>Comprehensive soil nutrient testing</li>
+                            <li>Water quality and availability assessment</li>
+                            <li>Microclimate mapping</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="2">
+                    <div class="timeline-marker">
+                        <span class="step-number">02</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Crop Selection</h3>
+                        <p>Based on data, we recommend the best crop combinations for maximum yield and market value.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Multi-crop rotation planning</li>
+                            <li>High-value crop identification</li>
+                            <li>Market demand analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="3">
+                    <div class="timeline-marker">
+                        <span class="step-number">03</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Farm Layout Design</h3>
+                        <p>We create a detailed 3D blueprint showing how every element fits together on your land.</p>
+                        <ul class="feature-list">
+                            <li>CAD-based farm modeling</li>
+                            <li>Optimal spacing calculations</li>
+                            <li>Sunlight and shadow analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="4">
+                    <div class="timeline-marker">
+                        <span class="step-number">04</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Agrivoltaic Installation</h3>
+                        <p>Solar panels are installed at optimal heights and angles to provide shade while generating
+                            electricity.</p>
+                        <ul class="feature-list">
+                            <li>PM-KUSUM scheme integration</li>
+                            <li>Grid connection setup</li>
+                            <li>Dual-use land optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="5">
+                    <div class="timeline-marker">
+                        <span class="step-number">05</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Hydroponics & Polyhouse Setup</h3>
+                        <p>Vertical farming structures are built for year-round production of high-value crops.</p>
+                        <ul class="feature-list">
+                            <li>Climate-controlled polyhouses</li>
+                            <li>Automated nutrient delivery</li>
+                            <li>Vertical space utilization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-step="6">
+                    <div class="timeline-marker">
+                        <span class="step-number">06</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Market Linkage & Buyback Support</h3>
+                        <p>We connect you with buyers and provide guaranteed purchase agreements for your produce.</p>
+                        <ul class="feature-list">
+                            <li>Direct market connections</li>
+                            <li>Price guarantee programs</li>
+                            <li>Ongoing technical support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="technology-section">
+        <div class="container">
+            <h2 class="section-title">Our Technology Stack</h2>
+            <p class="section-subtitle">Simple, proven technologies working together</p>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h3>Agri-Photovoltaics (APV)</h3>
+                    <p>Solar panels elevated 5-7.8 meters above crops create optimal micro-climate, protecting from heat
+                        stress while generating clean energy. Reduces evapotranspiration and improves PV efficiency
+                        through natural cooling.</p>
+                    <div class="tech-benefit">India's APV potential: 2.8-13.8 TW</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">💧</div>
+                    <h3>Hydroponics</h3>
+                    <p>Soil-free farming using water and nutrients. Grows crops faster with 90% less water.</p>
+                    <div class="tech-benefit">90% water savings</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🏗️</div>
+                    <h3>Vertical Polyhouse</h3>
+                    <p>Multi-layer farming structures that multiply your growing space without needing more land.</p>
+                    <div class="tech-benefit">3x more crops per acre</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🛡️</div>
+                    <h3>Mulch & Water Saving</h3>
+                    <p>Protective ground cover that locks moisture in soil and prevents weed growth.</p>
+                    <div class="tech-benefit">60% less water evaporation</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">☀️</div>
+                    <h3>Solar + PM-KUSUM</h3>
+                    <p>Government scheme providing 90% subsidy for solar installation on farms.</p>
+                    <div class="tech-benefit">90% subsidy available</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🧠</div>
+                    <h3>Soil Intelligence</h3>
+                    <p>Sensors monitor soil health, moisture, and nutrients in real-time for better decisions.</p>
+                    <div class="tech-benefit">Data-driven farming</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APV Technical Specifications Section -->
+    <section id="apv-specs" class="technology-section" style="background: var(--color-white); padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title">Agri-Photovoltaic System Specifications</h2>
+            <p class="section-subtitle">Technical details based on CSTEP research and industry standards</p>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">📐</div>
+                    <h3>System Configurations</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Overhead systems (south-facing & east-west)</li>
+                        <li>Inter-row south orientation</li>
+                        <li>Interspace vertical orientation</li>
+                        <li>Optimized for 17+ crop varieties</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">📏</div>
+                    <h3>Technical Parameters</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Clearance height: 5 meters minimum</li>
+                        <li>Installation height: Up to 7.8 meters</li>
+                        <li>Unit width: 19 meters</li>
+                        <li>Foundation: Corkscrew bolts (no concrete)</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🌿</div>
+                    <h3>Suitable Crops</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Leafy greens (shade-loving)</li>
+                        <li>Tomatoes & vegetables</li>
+                        <li>Root vegetables & tubers</li>
+                        <li>Yield reduction: Max 33% (regulatory)</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🌍</div>
+                    <h3>Environmental Benefits</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Enhanced biodiversity & ecosystem health</li>
+                        <li>Improved soil quality</li>
+                        <li>Better water regulation</li>
+                        <li>Climate change adaptation</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">💰</div>
+                    <h3>Economic Impact</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Diversified farmer income streams</li>
+                        <li>Energy entrepreneur opportunities</li>
+                        <li>Rural job creation</li>
+                        <li>Strengthened rural economies</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🔬</div>
+                    <h3>Performance Metrics</h3>
+                    <ul class="feature-list" style="text-align: left; padding-left: 1.5rem;">
+                        <li>Reduced evapotranspiration</li>
+                        <li>Improved PV module efficiency</li>
+                        <li>Protection from extreme weather</li>
+                        <li>Longer PV module lifespan</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- APV Benefits Highlight -->
+            <div class="comparison-section" style="margin-top: 4rem;">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--color-soil-brown);">
+                    Why APV is Perfect for India
+                </h3>
+                <div class="benefits-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">🌾</div>
+                        <h3>Land Optimization</h3>
+                        <p>Same land produces both food and energy, addressing land scarcity challenges</p>
+                    </div>
+
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #E8F5E9 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">🌡️</div>
+                        <h3>Micro-Climate Control</h3>
+                        <p>Panels protect crops from intense heat, strong winds, and extreme temperatures</p>
+                    </div>
+
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">💧</div>
+                        <h3>Water Conservation</h3>
+                        <p>Reduced evapotranspiration means significantly lower water requirements</p>
+                    </div>
+
+                    <div class="benefit-card" style="background: linear-gradient(135deg, #FFF9C4 0%, #FFFFFF 100%);">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Enhanced PV Performance</h3>
+                        <p>Cooler micro-climate improves solar panel efficiency and extends lifespan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Breakup Section -->
+    <section class="cost-breakup-section">
+        <div class="container">
+            <h2 class="section-title">1 MW APV Plant Cost Breakup</h2>
+            <p class="section-subtitle">Transparent capital expenditure breakdown</p>
+
+            <div class="cost-grid">
+                <!-- Visualization -->
+                <div class="chart-container">
+                    <div class="doughnut-chart"></div>
+                    <div class="chart-center-content">
+                        <span class="chart-total">1 MW</span>
+                        <span class="chart-label">Capacity</span>
+                    </div>
+                </div>
+
+                <!-- Details List -->
+                <div class="cost-details">
+                    <div class="cost-item item-solar">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">☀️</span>
+                            <div class="item-text">
+                                <h4>Solar Panels</h4>
+                                <span>2,200 modules (550 Wp)</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">57%</span>
+                    </div>
+
+                    <div class="cost-item item-structure">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🏗️</span>
+                            <div class="item-text">
+                                <h4>Mounting Structure</h4>
+                                <span>Overhead elevated structure</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">31%</span>
+                    </div>
+
+                    <div class="cost-item item-inverter">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">⚡</span>
+                            <div class="item-text">
+                                <h4>Inverters</h4>
+                                <span>String inverters</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">4%</span>
+                    </div>
+
+                    <div class="cost-item item-prep">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🚜</span>
+                            <div class="item-text">
+                                <h4>Site Preparation</h4>
+                                <span>Preliminary expenses & civil</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">3%</span>
+                    </div>
+
+                    <div class="cost-item item-cables">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🔌</span>
+                            <div class="item-text">
+                                <h4>Cables & Electrical</h4>
+                                <span>DC/AC cabling standard rates</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">3%</span>
+                    </div>
+
+                    <div class="cost-item item-misc">
+                        <div class="item-info">
+                            <span class="easter-egg-icon">🌾</span>
+                            <div class="item-text">
+                                <h4>Miscellaneous</h4>
+                                <span>Fencing & other costs</span>
+                            </div>
+                        </div>
+                        <span class="item-percentage">2%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FPOs Section -->
+    <section id="fpos" class="fpos-section">
+        <div class="container">
+            <h2 class="section-title">Why FPOs Are Essential</h2>
+            <p class="section-subtitle">AGROVA is built around the FPO model, not outside it</p>
+
+            <!-- Interactive FPO Icon -->
+            <div class="fpo-icon-container">
+                <svg class="fpo-group-icon" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central larger person representing FPO -->
+                    <g class="person central-person" data-index="0">
+                        <circle cx="200" cy="100" r="25" class="person-head" />
+                        <path d="M 200 125 L 200 180 M 175 145 L 225 145 M 200 180 L 175 220 M 200 180 L 225 220"
+                            class="person-body" stroke-width="8" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Surrounding farmers (8 people in circle) -->
+                    <g class="person farmer-person" data-index="1">
+                        <circle cx="120" cy="80" r="15" class="person-head" />
+                        <path d="M 120 95 L 120 130 M 105 110 L 135 110 M 120 130 L 105 155 M 120 130 L 135 155"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="2">
+                        <circle cx="280" cy="80" r="15" class="person-head" />
+                        <path d="M 280 95 L 280 130 M 265 110 L 295 110 M 280 130 L 265 155 M 280 130 L 295 155"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="3">
+                        <circle cx="340" cy="150" r="15" class="person-head" />
+                        <path d="M 340 165 L 340 200 M 325 180 L 355 180 M 340 200 L 325 225 M 340 200 L 355 225"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="4">
+                        <circle cx="60" cy="150" r="15" class="person-head" />
+                        <path d="M 60 165 L 60 200 M 45 180 L 75 180 M 60 200 L 45 225 M 60 200 L 75 225"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="5">
+                        <circle cx="100" cy="220" r="15" class="person-head" />
+                        <path d="M 100 235 L 100 270 M 85 250 L 115 250 M 100 270 L 85 295 M 100 270 L 115 295"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="6">
+                        <circle cx="300" cy="220" r="15" class="person-head" />
+                        <path d="M 300 235 L 300 270 M 285 250 L 315 250 M 300 270 L 285 295 M 300 270 L 315 295"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="7">
+                        <circle cx="160" cy="50" r="15" class="person-head" />
+                        <path d="M 160 65 L 160 100 M 145 80 L 175 80 M 160 100 L 145 125 M 160 100 L 175 125"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <g class="person farmer-person" data-index="8">
+                        <circle cx="240" cy="50" r="15" class="person-head" />
+                        <path d="M 240 65 L 240 100 M 225 80 L 255 80 M 240 100 L 225 125 M 240 100 L 255 125"
+                            class="person-body" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Connection lines -->
+                    <g class="connection-lines">
+                        <line x1="200" y1="100" x2="120" y2="80" class="connection-line" />
+                        <line x1="200" y1="100" x2="280" y2="80" class="connection-line" />
+                        <line x1="200" y1="100" x2="340" y2="150" class="connection-line" />
+                        <line x1="200" y1="100" x2="60" y2="150" class="connection-line" />
+                        <line x1="200" y1="100" x2="100" y2="220" class="connection-line" />
+                        <line x1="200" y1="100" x2="300" y2="220" class="connection-line" />
+                        <line x1="200" y1="100" x2="160" y2="50" class="connection-line" />
+                        <line x1="200" y1="100" x2="240" y2="50" class="connection-line" />
+                    </g>
+                </svg>
+                <p class="fpo-icon-label">Farmers are members and stakeholders, not customers</p>
+            </div>
+
+            <!-- FPO Key Points Grid -->
+            <div class="fpo-points-grid">
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🏛️</div>
+                    <h3>Built Around FPOs</h3>
+                    <p>AGROVA is built around the FPO model, not outside it. Farmers are not customers; they are members
+                        and stakeholders.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🤝</div>
+                    <h3>Collective Action</h3>
+                    <p>An FPO allows farmers to act collectively, not individually. Individual farmers struggle; groups
+                        negotiate.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🌾</div>
+                    <h3>Land Aggregation</h3>
+                    <p>AGROVA uses FPOs to aggregate land without transferring ownership. Land always remains with the
+                        farmer.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">⚡</div>
+                    <h3>Scale & Viability</h3>
+                    <p>FPO enables cluster-based agrivoltaic projects. Solar projects are viable only at scale. FPO
+                        provides that scale legally and transparently.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🏛️</div>
+                    <h3>Government Support</h3>
+                    <p>Government schemes prefer FPOs over individuals. PM-KUSUM becomes easier through FPO
+                        participation. Subsidies are accessible only with proper structure.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">💰</div>
+                    <h3>Reduced Costs</h3>
+                    <p>FPO reduces project cost per farmer. Shared infrastructure lowers individual risk.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🏦</div>
+                    <h3>Financial Access</h3>
+                    <p>Banks trust FPOs more than individuals. Financing becomes possible without burdening one farmer.
+                    </p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">💵</div>
+                    <h3>Revenue Distribution</h3>
+                    <p>Revenue flows through the FPO system. Income distribution is proportional to land contribution.
+                        AGROVA designs this revenue-sharing logic.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🔒</div>
+                    <h3>Income Protection</h3>
+                    <p>Escrow accounts protect farmer income. FPO ensures timely loan repayment. Maintenance costs are
+                        shared and predictable.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">📈</div>
+                    <h3>Stable Income</h3>
+                    <p>Farmers receive stable monthly income from solar. Crop income becomes additional, not
+                        survival-based.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">�</div>
+                    <h3>Market Access</h3>
+                    <p>FPO improves market access for crops. Collective selling improves price discovery. Buyback
+                        becomes feasible through aggregated volumes.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🚫</div>
+                    <h3>Reduced Middlemen</h3>
+                    <p>Middlemen dependency reduces significantly. Knowledge and training reach all members.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">📚</div>
+                    <h3>Technology Adoption</h3>
+                    <p>Technology adoption becomes easier through group learning. Risk is distributed, not concentrated.
+                    </p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🌍</div>
+                    <h3>Climate Resilience</h3>
+                    <p>Climate shocks affect individuals, not the system. FPO creates resilience through numbers.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🤝</div>
+                    <h3>Strategic Partnership</h3>
+                    <p>AGROVA acts as the technical and strategic partner. FPO handles ownership and governance.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">⚖️</div>
+                    <h3>Democratic Governance</h3>
+                    <p>Decision-making becomes democratic and transparent. Disputes reduce due to predefined rules.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">📊</div>
+                    <h3>Scalable Model</h3>
+                    <p>Expansion happens by adding new members. The model scales village by village. Every FPO becomes a
+                        replicable AGROVA unit.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🎯</div>
+                    <h3>Producer Identity</h3>
+                    <p>Farmers gain identity as producers, not beneficiaries. Trust increases when systems replace
+                        promises.</p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">🔄</div>
+                    <h3>Long-term Stability</h3>
+                    <p>Long-term stability replaces short-term subsidies. AGROVA aligns farmers, banks, and government.
+                    </p>
+                </div>
+
+                <div class="fpo-card">
+                    <div class="fpo-card-icon">⚡</div>
+                    <h3>Integrated System</h3>
+                    <p>Energy and agriculture work together under one body. The FPO is the backbone of execution.</p>
+                </div>
+
+                <div class="fpo-card highlight-card">
+                    <div class="fpo-card-icon">✅</div>
+                    <h3>Essential, Not Optional</h3>
+                    <p><strong>Without FPO, AGROVA cannot scale. With FPO, AGROVA becomes sustainable. This is not
+                            optional — it is essential.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Distribution Section -->
+    <section id="revenue" class="revenue-section">
+        <div class="container">
+            <h2 class="section-title">💰 Revenue Distribution — Who Earns, How, and Why</h2>
+            <p class="section-subtitle">Understanding the complete money flow from electricity generation to stakeholder
+                earnings</p>
+
+            <!-- Money Flow Steps -->
+            <div class="money-flow-container">
+                <!-- Step 1: Revenue Source -->
+                <div class="flow-step" data-step="1">
+                    <div class="flow-step-header">
+                        <div class="flow-step-title">
+                            <span class="flow-icon">⚡</span>
+                            <h3>Step 1: Where Does the Money Come From?</h3>
+                        </div>
+                    </div>
+                    <div class="flow-step-content">
+                        <p><strong>State DISCOM</strong> buys solar power under PM-KUSUM scheme</p>
+                        <div class="flow-breakdown">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Fixed Tariff</span>
+                                <span class="breakdown-value">₹3–3.5 per unit</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Contract Duration</span>
+                                <span class="breakdown-value">25 years PPA</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Revenue Type</span>
+                                <span class="breakdown-value">Guaranteed & Predictable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <!-- Step 2: Total Revenue -->
+                <div class="flow-step" data-step="2">
+                    <div class="flow-step-header">
+                        <div class="flow-step-title">
+                            <span class="flow-icon">💵</span>
+                            <h3>Step 2: Total Money Generated (1 MW Example)</h3>
+                        </div>
+                        <span class="flow-amount">₹48.75 L/year</span>
+                    </div>
+                    <div class="flow-step-content">
+                        <div class="flow-breakdown">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Power Generated</span>
+                                <span class="breakdown-value">15 lakh units/year</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Tariff Rate</span>
+                                <span class="breakdown-value">₹3.25/unit</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Total Revenue</span>
+                                <span class="breakdown-value">15,00,000 × ₹3.25 = ₹48.75 L</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; color: #00FFFF; font-weight: 600;">This ₹48.75 lakh is the main
+                            revenue pot</p>
+                    </div>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <!-- Step 3: Operating Costs -->
+                <div class="flow-step" data-step="3">
+                    <div class="flow-step-header">
+                        <div class="flow-step-title">
+                            <span class="flow-icon">🔧</span>
+                            <h3>Step 3: Operating Costs (OPEX)</h3>
+                        </div>
+                        <span class="flow-amount">₹4.5 L/year</span>
+                    </div>
+                    <div class="flow-step-content">
+                        <p>Before anyone earns, the plant must run efficiently</p>
+                        <div class="flow-breakdown">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Cleaning & Maintenance</span>
+                                <span class="breakdown-value">₹3.0 L</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Insurance</span>
+                                <span class="breakdown-value">₹0.7 L</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Monitoring & Admin</span>
+                                <span class="breakdown-value">₹0.8 L</span>
+                            </div>
+                            <div class="breakdown-item"
+                                style="border-top: 2px solid rgba(245, 166, 35, 0.5); padding-top: 0.5rem; margin-top: 0.5rem;">
+                                <span class="breakdown-label"><strong>Remaining Money</strong></span>
+                                <span class="breakdown-value"><strong>₹44.25 L</strong></span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; color: #00FFFF; font-weight: 600;">This ₹44.25 lakh gets distributed
+                            to stakeholders</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stakeholder Cards -->
+            <h3 style="text-align: center; font-size: 2.5rem; color: #fff; margin-bottom: 3rem; margin-top: 4rem;">
+                Who Gets This ₹44.25 Lakh and Why?
+            </h3>
+
+            <div class="stakeholders-grid">
+                <!-- Farmer / FPO -->
+                <div class="stakeholder-card" data-stakeholder="farmer">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🧑‍🌾</span>
+                        <div class="stakeholder-title">
+                            <h3>Farmer / FPO</h3>
+                            <p class="stakeholder-role">Land Owner + Beneficiary</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Annual Earnings</p>
+                        <p class="earnings-amount">₹6–10 L</p>
+                        <p class="earnings-range">Varies by model & land size</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>Why Farmer Earns:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>✓ Provides land (lease or revenue share)</li>
+                            <li>✓ Allows solar installation</li>
+                            <li>✓ Often consumes power for irrigation</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>How Farmer Earns:</strong></p>
+                        <p style="margin-top: 0.5rem;"><strong>Model A: Fixed Lease</strong><br>
+                            ₹1–1.5 lakh per acre/year<br>
+                            1 MW ≈ 4–5 acres = ₹6–8 lakh/year guaranteed</p>
+
+                        <p style="margin-top: 0.5rem;"><strong>Model B: Profit Share</strong><br>
+                            15–25% of net revenue = ₹7–10 lakh/year</p>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">Stable Income</span>
+                        <span class="benefit-tag">Risk-Free</span>
+                        <span class="benefit-tag">Free Daytime Power</span>
+                    </div>
+                </div>
+
+                <!-- Private Investor / Bank -->
+                <div class="stakeholder-card" data-stakeholder="investor">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🏦</span>
+                        <div class="stakeholder-title">
+                            <h3>Private Investor / Bank</h3>
+                            <p class="stakeholder-role">Money Provider</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Annual Earnings</p>
+                        <p class="earnings-amount">₹14–16 L</p>
+                        <p class="earnings-range">12–15% IRR</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>Why Investor Earns:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>✓ Puts real cash (30%+ of project cost)</li>
+                            <li>✓ Takes financial risk</li>
+                            <li>✓ Enables project execution</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>How They Earn:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>• Paid from remaining revenue after farmer share</li>
+                            <li>• Loan repayment (bank)</li>
+                            <li>• Equity dividend (private investor)</li>
+                            <li>• Full money recovered in 6–7 years</li>
+                            <li>• After that → mostly pure profit</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">Long-term Returns</span>
+                        <span class="benefit-tag">Low Risk</span>
+                        <span class="benefit-tag">Guaranteed Revenue</span>
+                    </div>
+                </div>
+
+                <!-- EPC & O&M Companies -->
+                <div class="stakeholder-card" data-stakeholder="epc">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🏗️</span>
+                        <div class="stakeholder-title">
+                            <h3>EPC & O&M Companies</h3>
+                            <p class="stakeholder-role">Builders & Operators</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Annual O&M Contract</p>
+                        <p class="earnings-amount">₹3–5 L</p>
+                        <p class="earnings-range">+ One-time EPC margin</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>EPC (Engineering, Procurement, Construction):</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>• Build the plant</li>
+                            <li>• One-time payment during installation</li>
+                            <li>• Margin: 8–12% of CAPEX</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>O&M (Operations & Maintenance):</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>• Clean panels regularly</li>
+                            <li>• Monitor performance</li>
+                            <li>• Annual contract: ₹3–5 lakh/year</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">Service-Based</span>
+                        <span class="benefit-tag">Recurring Revenue</span>
+                    </div>
+                </div>
+
+                <!-- Government -->
+                <div class="stakeholder-card" data-stakeholder="government">
+                    <div class="stakeholder-header">
+                        <span class="stakeholder-icon">🏛️</span>
+                        <div class="stakeholder-title">
+                            <h3>Government</h3>
+                            <p class="stakeholder-role">Indirect Benefits</p>
+                        </div>
+                    </div>
+
+                    <div class="stakeholder-earnings">
+                        <p class="earnings-label">Direct Cash</p>
+                        <p class="earnings-amount">₹0</p>
+                        <p class="earnings-range">But massive indirect returns</p>
+                    </div>
+
+                    <div class="stakeholder-details">
+                        <p><strong>Where Government Benefits:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>🔹 <strong>Reduced power subsidy</strong><br>
+                                Farmers shift to solar, less free power burden on DISCOMs</li>
+
+                            <li style="margin-top: 0.5rem;">🔹 <strong>Carbon credits</strong><br>
+                                Clean energy replaces fossil fuel, monetizable globally</li>
+
+                            <li style="margin-top: 0.5rem;">🔹 <strong>Rural jobs</strong><br>
+                                Installation, maintenance, local technicians</li>
+
+                            <li style="margin-top: 0.5rem;">🔹 <strong>Grid stability</strong><br>
+                                Daytime solar aligns with irrigation load</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-benefits">
+                        <span class="benefit-tag">25-Year Benefits</span>
+                        <span class="benefit-tag">One-Time Investment</span>
+                        <span class="benefit-tag">Clean Energy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simple Money Flow Diagram -->
+            <div class="money-flow-visual">
+                <h3 style="text-align: center; color: #fff; font-size: 2rem; margin-bottom: 2rem;">
+                    Simple Money Flow Diagram
+                </h3>
+
+                <div class="flow-diagram">
+                    <div class="flow-node">
+                        <div class="flow-node-title">DISCOM Payment</div>
+                        <div class="flow-node-amount">₹48.75 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">OPEX (Plant Running Costs)</div>
+                        <div class="flow-node-amount">₹4.5 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">Farmer Share</div>
+                        <div class="flow-node-amount">₹6–10 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">Investor Returns</div>
+                        <div class="flow-node-amount">₹14–16 L</div>
+                    </div>
+
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-node">
+                        <div class="flow-node-title">Surplus / Reserves / Expansion</div>
+                        <div class="flow-node-amount">Remaining</div>
+                    </div>
+                </div>
+
+                <!-- Floating Coins Animation -->
+                <span class="coin-animation" style="top: 10%; left: 10%;">💰</span>
+                <span class="coin-animation" style="top: 30%; right: 15%; animation-delay: 1s;">💵</span>
+                <span class="coin-animation" style="top: 50%; left: 20%; animation-delay: 2s;">💰</span>
+                <span class="coin-animation" style="top: 70%; right: 10%; animation-delay: 1.5s;">💵</span>
+            </div>
+
+            <!-- Government Benefits Highlight -->
+            <div class="government-benefits">
+                <h3>Government: Invests Once, Benefits for 25 Years</h3>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💰</span>
+                        <div class="benefit-content">
+                            <h4>Reduced Power Subsidy</h4>
+                            <p>Farmers shift to solar, reducing the free power burden on state DISCOMs significantly</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🌍</span>
+                        <div class="benefit-content">
+                            <h4>Carbon Credits</h4>
+                            <p>Clean energy replaces fossil fuel, creating monetizable carbon credits at national/global
+                                level</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">👷</span>
+                        <div class="benefit-content">
+                            <h4>Rural Job Creation</h4>
+                            <p>Installation, maintenance, and local technician jobs boost rural employment</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⚡</span>
+                        <div class="benefit-content">
+                            <h4>Grid Stability</h4>
+                            <p>Daytime solar generation aligns perfectly with irrigation load, reducing peak stress</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision-section">
+        <div class="vision-background">
+            <canvas id="vision-canvas"></canvas>
+        </div>
+        <div class="vision-content">
+            <h2 class="vision-statement">
+                We are not improving farming.<br>
+                <span class="highlight">We are redesigning farms.</span>
+            </h2>
+            <p class="vision-description">
+                Every farm is a unique ecosystem. We engineer each one to maximize its natural potential
+                while integrating modern technology. The result: sustainable, profitable, and climate-resilient
+                agriculture.
+            </p>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">🌾 The Transformation</h2>
+            <p class="section-subtitle">See how AGROVA transforms traditional farms into sustainable agri-photovoltaic
+                powerhouses</p>
+
+            <div class="comparison-section" style="margin-top: 4rem;">
+                <h3>Traditional Farm vs. Agri-Photovoltaic Farm</h3>
+                <div class="comparison-slider">
+                    <div class="comparison-container" id="comparison-container">
+                        <!-- Before Image -->
+                        <div class="comparison-image before">
+                            <img src="assets/images/farm-before.jpg"
+                                alt="Traditional farm with basic irrigation and conventional farming methods">
+                            <div class="comparison-label">BEFORE: Traditional Farm</div>
+                        </div>
+
+                        <!-- After Image -->
+                        <div class="comparison-image after" id="after-section">
+                            <img src="assets/images/farm-after.jpg"
+                                alt="Modern agri-photovoltaic farm with solar panels and thriving crops">
+                            <div class="comparison-label">AFTER: Agri-Photovoltaic Farm</div>
+                        </div>
+
+                        <!-- Slider Control -->
+                        <input type="range" min="0" max="100" value="50" class="slider" id="comparison-slider">
+                        <div class="slider-button" id="slider-button"></div>
+                    </div>
+                </div>
+
+                <!-- Transformation Benefits -->
+                <div class="benefits-grid" style="margin-top: 4rem;">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3>3x Income Increase</h3>
+                        <p>Farmers earn from crops, land lease, and free daytime power</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">300%</span>
+                            <span class="metric-label">Revenue Growth</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Clean Energy Generation</h3>
+                        <p>15 lakh units/year from 1 MW plant powering rural communities</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">15L</span>
+                            <span class="metric-label">Units/Year</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌱</div>
+                        <h3>Sustainable Agriculture</h3>
+                        <p>Crops thrive under panels with reduced water needs and heat stress</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">30%</span>
+                            <span class="metric-label">Water Savings</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌍</div>
+                        <h3>Carbon Reduction</h3>
+                        <p>Replacing fossil fuels with clean solar energy for 25 years</p>
+                        <div class="benefit-metric">
+                            <span class="metric-value">12K</span>
+                            <span class="metric-label">Tons CO₂ Saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AGROVA</h3>
+                    <p>Redesigning Indian farms for a sustainable future.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#problem">Problems</a></li>
+                        <li><a href="#farm-design">Farm Design</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#fpos">FPOs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">PM-KUSUM Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: sandeepthej3@gmail.com</li>
+                        <li>Phone: +91 8142817018</li>
+                        <li>Address: Chennai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AGROVA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/three-setup.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/farm-interactive.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/fpo-animations.js"></script>
+    <script src="js/revenue-animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

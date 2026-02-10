@@ -1,0 +1,365 @@
+/* ===================================
+   FPO Section Styles
+   =================================== */
+
+.fpos-section {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.fpos-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 107, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(76, 175, 80, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Interactive FPO Icon Container */
+.fpo-icon-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 2px solid rgba(255, 107, 0, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.fpo-icon-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(255, 107, 0, 0.15);
+    border-color: rgba(255, 107, 0, 0.3);
+}
+
+/* SVG Group Icon */
+.fpo-group-icon {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Person Styles */
+.person {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.person-head {
+    fill: var(--color-leaf-green, #4CAF50);
+    transition: all 0.3s ease;
+}
+
+.person-body {
+    fill: none;
+    stroke: var(--color-leaf-green, #4CAF50);
+    stroke-width: 5;
+    transition: all 0.3s ease;
+}
+
+/* Central Person - FPO */
+.central-person .person-head {
+    fill: var(--color-molten-orange, #FF6B00);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.central-person .person-body {
+    stroke: var(--color-molten-orange, #FF6B00);
+    stroke-width: 8;
+}
+
+/* Farmer Persons */
+.farmer-person {
+    animation: float-person 3s ease-in-out infinite;
+}
+
+.farmer-person:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.farmer-person:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.farmer-person:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.farmer-person:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.farmer-person:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.farmer-person:nth-child(7) {
+    animation-delay: 1.2s;
+}
+
+.farmer-person:nth-child(8) {
+    animation-delay: 1.4s;
+}
+
+.farmer-person:nth-child(9) {
+    animation-delay: 1.6s;
+}
+
+/* Hover Effects */
+.person:hover .person-head {
+    fill: var(--color-molten-orange, #FF6B00);
+    transform: scale(1.2);
+}
+
+.person:hover .person-body {
+    stroke: var(--color-molten-orange, #FF6B00);
+}
+
+/* Connection Lines */
+.connection-line {
+    stroke: rgba(255, 107, 0, 0.3);
+    stroke-width: 2;
+    stroke-dasharray: 5, 5;
+    animation: dash-flow 2s linear infinite;
+}
+
+/* Icon Label */
+.fpo-icon-label {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-soil-brown, #5D4E37);
+    font-family: 'Outfit', sans-serif;
+}
+
+/* FPO Points Grid */
+.fpo-points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* FPO Card */
+.fpo-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 2px solid rgba(255, 107, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.fpo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fpo-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 107, 0, 0.2);
+    border-color: var(--color-molten-orange, #FF6B00);
+}
+
+.fpo-card:hover::before {
+    opacity: 1;
+}
+
+/* FPO Card Icon */
+.fpo-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+.fpo-card:hover .fpo-card-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* FPO Card Title */
+.fpo-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-soil-brown, #5D4E37);
+    margin-bottom: 1rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* FPO Card Text */
+.fpo-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Highlight Card */
+.highlight-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, rgba(76, 175, 80, 0.1) 100%);
+    border: 3px solid var(--color-molten-orange, #FF6B00);
+    text-align: center;
+    padding: 3rem;
+}
+
+.highlight-card .fpo-card-icon {
+    font-size: 4rem;
+}
+
+.highlight-card h3 {
+    font-size: 2rem;
+    color: var(--color-molten-orange, #FF6B00);
+}
+
+.highlight-card p {
+    font-size: 1.3rem;
+    color: var(--color-soil-brown, #5D4E37);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.8));
+    }
+}
+
+@keyframes float-person {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes dash-flow {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: 20;
+    }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .fpos-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+}
+
+[data-theme="dark"] .fpo-icon-container {
+    background: rgba(30, 30, 30, 0.8);
+    border-color: rgba(255, 107, 0, 0.3);
+}
+
+[data-theme="dark"] .fpo-card {
+    background: rgba(30, 30, 30, 0.8);
+    border-color: rgba(255, 107, 0, 0.2);
+}
+
+[data-theme="dark"] .fpo-card h3 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .fpo-card p {
+    color: #cccccc;
+}
+
+[data-theme="dark"] .fpo-icon-label {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .highlight-card {
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.2) 0%, rgba(76, 175, 80, 0.2) 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fpos-section {
+        padding: 4rem 0;
+    }
+
+    .fpo-icon-container {
+        padding: 2rem;
+        margin: 2rem auto;
+    }
+
+    .fpo-group-icon {
+        max-width: 300px;
+    }
+
+    .fpo-points-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .fpo-card {
+        padding: 1.5rem;
+    }
+
+    .fpo-card-icon {
+        font-size: 2.5rem;
+    }
+
+    .fpo-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .highlight-card {
+        padding: 2rem;
+    }
+
+    .highlight-card .fpo-card-icon {
+        font-size: 3rem;
+    }
+
+    .highlight-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .highlight-card p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fpo-icon-label {
+        font-size: 1rem;
+    }
+
+    .fpo-card p {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "farmengineer-agritech-website",
+  "version": "1.0.0",
+  "description": "Modern agritech website showcasing farm engineering with agrivoltaics, hydroponics, and smart farming solutions",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx http-server -p 8000 -o",
+    "build": "echo 'No build required for static site'",
+    "deploy": "echo 'Deploy to your preferred hosting service'"
+  },
+  "keywords": [
+    "agritech",
+    "agrivoltaics",
+    "hydroponics",
+    "smart-farming",
+    "sustainable-agriculture",
+    "farm-engineering",
+    "solar-farming",
+    "vertical-farming"
+  ],
+  "author": "AGROVA",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/farmengineer-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/farmengineer-website/issues"
+  },
+  "homepage": "https://farmengineer.com"
+}
