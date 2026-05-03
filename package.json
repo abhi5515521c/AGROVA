@@ -1,7 +1,0 @@
-{
-  "name": "agrova-root",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "mkdir -p public && cp -r agritech-website/* public/"
-  }
-}
