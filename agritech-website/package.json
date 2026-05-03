@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx http-server -p 8000 -o",
     "dev": "npx http-server -p 8000 -o",
-    "build": "echo 'No build required for static site'",
+    "build": "mkdir -p public && cp -r assets js styles index.html vercel.json public/",
     "deploy": "echo 'Deploy to your preferred hosting service'"
   },
   "keywords": [
